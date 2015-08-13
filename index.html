@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What’s My Device Pixel Ratio?</title>
+<style>
+    body { font-family: Arial, sans-serif; font-size: 18px; color: #0094ff; text-align: center; }
+    #wrapper { display: inline-block; margin: 45px 0; padding: 10px 30px; /*box-shadow: 0px 0px 5px #000; border-radius: 10px;*/ }
+    h1 { font-size: 2em; padding: 0; margin: 20px auto; width: 100%; max-width: 600px; }
+    #numWrap { width: 100%; }
+    h2 { font-size: 8em; padding: 0; margin: 40px auto 10px auto; display: inline-block; min-width: 200px; color: #fff; border-radius: 9px; background: #1e5799; }
+    h3 { font-size: 1.5em; padding: 0; margin: 30px auto; width: 100%; max-width: 600px; }
+    .unsupported { font-size: 22px; line-height: 35px; width: 200px; padding: 15px; margin: 10px auto; background: #f00; color: #fff; font-weight: bold; border-radius: 15px; }
+</style>
+</head>
+<body>
+<div id="wrapper">
+    <h1>What's My Device Pixel Ratio?</h1>
+    <h3>Your Device Pixel Ratio is:</h3>
+    <div id="numWrap">
+        <h2>1</h2>
+    </div>
+</div>
+
+<script type="text/javascript">
+(function updateDevicePixelRatio() {
+    var isRetina = window.devicePixelRatio > 1 ? true : false;
+    document.getElementById("numWrap").innerHTML = (window.devicePixelRatio) ? '<h2>' + window.devicePixelRatio + '</h2>' : '<div class="unsupported">Your Browser Doesn\'t Support devicePixelRatio.</div>';
+    setTimeout(updateDevicePixelRatio, 100);
+})();
+</script>
+</body>
+</html>
